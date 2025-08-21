@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Sentiment Input</title>
+</head>
+<body>
+    <h1>Enter a Stock Ticker</h1>
+
+    <form method="POST" action="/result">
+        <input type="text" name="ticker" placeholder="e.g. AAPL" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    <!-- Display error message if ticker is invalid -->
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>How to Interpret Sentiment Scores</h2>
+    <p>The sentiment score ranges from <strong>-1</strong> (most negative) to <strong>+1</strong> (most positive).</p>
+
+    <ul>
+        <li><strong>Above 0.05</strong>: Positive Sentiment (Good)</li>
+        <li><strong>Between -0.05 and 0.05</strong>: Neutral Sentiment</li>
+        <li><strong>Below -0.05</strong>: Negative Sentiment (Bad)</li>
+    </ul>
+
+    <p>Examples:</p>
+    <ul>
+        <li><em>+0.8</em> — Strong Positive: “Apple stock skyrockets on record profits!”</li>
+        <li><em>+0.2</em> — Mildly Positive: “Tesla announces new model release.”</li>
+        <li><em>0.0</em> — Neutral: “Microsoft holds annual developer conference.”</li>
+        <li><em>-0.2</em> — Mildly Negative: “Amazon faces minor delivery issues.”</li>
+        <li><em>-0.7</em> — Strong Negative: “NVIDIA hit with major antitrust lawsuit.”</li>
+    </ul>
+
+    <p><em>Note:</em> Sentiment scores reflect the tone of news headlines, not guaranteed stock performance.</p>
+
+</body>
+</html>

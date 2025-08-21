@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Result</title>
+</head>
+<body>
+    <h1>📊 Sentiment Result</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <p>Results for: <strong>{{ ticker }}</strong></p>
+       <p><strong> Average Sentiment: </strong> {{result.AvgSentiment}}</p>
+    {% endif %}
+
+    <br>
+    <a href="/">← Back</a>
+</body>
+</html>
